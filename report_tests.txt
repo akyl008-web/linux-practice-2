@@ -1,0 +1,52 @@
++ ./report.sh data WARN
+MODULE   COUNT
+net        933
+disk       889
+db         740
+cache      647
+api        461
+auth       438
+sched      215
+fs         203
++ ./report.sh data ERROR --top 3
+MODULE   COUNT
+db         637
+net        600
+disk       321
++ echo 'код: 0'
+код: 0
++ ./report.sh
+Использование: ./report.sh <каталог> <ERROR|WARN> [--top N]
+  <каталог>     каталог с журналами *.log
+  <ERROR|WARN>  уровень сообщений
+  --top N       показать только N первых модулей (N — целое число > 0)
+Пример: ./report.sh data ERROR --top 3
++ echo 'код: 1'
+код: 1
++ ./report.sh /nope ERROR
+Ошибка: каталог '/nope' не существует
+Использование: ./report.sh <каталог> <ERROR|WARN> [--top N]
+  <каталог>     каталог с журналами *.log
+  <ERROR|WARN>  уровень сообщений
+  --top N       показать только N первых модулей (N — целое число > 0)
+Пример: ./report.sh data ERROR --top 3
++ echo 'код: 1'
+код: 1
++ ./report.sh data INFO
+Ошибка: неверный уровень 'INFO' (нужно ERROR или WARN)
+Использование: ./report.sh <каталог> <ERROR|WARN> [--top N]
+  <каталог>     каталог с журналами *.log
+  <ERROR|WARN>  уровень сообщений
+  --top N       показать только N первых модулей (N — целое число > 0)
+Пример: ./report.sh data ERROR --top 3
++ echo 'код: 1'
+код: 1
++ ./report.sh data ERROR --top abc
+Ошибка: N должно быть целым числом > 0, получено 'abc'
+Использование: ./report.sh <каталог> <ERROR|WARN> [--top N]
+  <каталог>     каталог с журналами *.log
+  <ERROR|WARN>  уровень сообщений
+  --top N       показать только N первых модулей (N — целое число > 0)
+Пример: ./report.sh data ERROR --top 3
++ echo 'код: 1'
+код: 1
